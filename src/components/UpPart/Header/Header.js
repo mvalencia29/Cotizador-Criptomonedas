@@ -1,8 +1,8 @@
 import React from "react";
-import HeaderContainer from "./Styles";
+import { HeaderContainer, HeaderText } from "./Styles";
 
 const Header = () => {
-  return <HeaderContainer>Header</HeaderContainer>;
+  return <HeaderContainer><HeaderText>Cotizador de Criptomonedas</HeaderText></HeaderContainer>;
 };
 
 export default Header;
