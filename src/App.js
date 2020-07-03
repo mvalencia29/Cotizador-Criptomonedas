@@ -1,9 +1,8 @@
-import React from 'react';
+import React from "react";
+import Page from "./Page";
 
 function App() {
-  return (
-    <p>Govyb</p>
-  );
+  return <Page />;
 }
 
 export default App;
