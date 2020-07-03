@@ -8,6 +8,6 @@ export const HeaderContainer = styled.div`
 `;
 
 export const HeaderText = styled.h2`
-  color: #1d2029;
+  color: #1d2029e6;
   margin: 0
 `;
