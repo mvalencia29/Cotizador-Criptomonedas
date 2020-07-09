@@ -23,7 +23,7 @@ const useSelectOption = (options) => {
         >
           <MenuItem value="">None</MenuItem>
           {options.map((option) => (
-            <MenuItem value={option.code}>{option.name}</MenuItem>
+            <MenuItem key={option.code} value={option.code}>{option.name}</MenuItem>
           ))}
         </Select>
       </FormControl>
