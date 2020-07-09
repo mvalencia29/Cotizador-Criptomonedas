@@ -1,13 +1,18 @@
 import React from "react";
 import { Container, ContainerForm, ButtonSave } from "./Styles";
-import TextField from "@material-ui/core/TextField";
+import useSelectOption from "../../../hooks/useSelectOption";
 
 const Form = () => {
+  const [currencySelected, SelectCurrency] = useSelectOption();
+  const [criptoSelected, SelectCripto] = useSelectOption();
+
   return (
     <Container>
       <ContainerForm>
-        <TextField margin="dense" label="Outlined" variant="outlined" />
-        <TextField margin="dense" label="Outlined" variant="outlined" />
+        {console.log(`currencySelected : ${currencySelected}`)}
+        {console.log(`currencySelected : ${criptoSelected}`)}
+        <SelectCurrency />
+        <SelectCripto />
         <ButtonSave variant="contained" color="primary">
           Consultar
         </ButtonSave>
