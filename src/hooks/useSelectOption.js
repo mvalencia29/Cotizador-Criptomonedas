@@ -4,7 +4,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
-const useSelectOption = () => {
+const useSelectOption = (options) => {
   const [optionSelected, setOptionSelected] = useState("");
 
   const handleChange = (e) => {
@@ -14,24 +14,26 @@ const useSelectOption = () => {
   const SelectComponent = () => {
     return (
       <FormControl variant="outlined" style={{ minWidth: 230 }}>
-        <InputLabel id="demo-simple-select-outlined-label">Age</InputLabel>
+        <InputLabel>Age</InputLabel>
         <Select
-          labelId="demo-simple-select-outlined-label"
-          id="demo-simple-select-outlined"
+          fullWidth
           value={optionSelected}
           onChange={handleChange}
           label="Age"
-          fullWidth
         >
           <MenuItem value="">None</MenuItem>
-          <MenuItem value={10}>Ten</MenuItem>
-          <MenuItem value={20}>Twenty</MenuItem>
-          <MenuItem value={30}>Thirty</MenuItem>
+          {options.map((option) => (
+            <MenuItem value={option.code}>{option.name}</MenuItem>
+          ))}
         </Select>
       </FormControl>
     );
   };
   return [optionSelected, SelectComponent];
+};
+
+useSelectOption.defaultProps = {
+    options: [],
 };
 
 export default useSelectOption;
