@@ -10,7 +10,7 @@ const Select = (props) => {
   const { optionSelected, handleChange, label, options } = props;
 
   return (
-    <FormControl variant="outlined" style={{ minWidth: 230 }}>
+    <FormControl variant="outlined" style={{ minWidth: 230 }} margin="dense">
       <InputLabel>{label}</InputLabel>
       <ComboBox
         fullWidth
