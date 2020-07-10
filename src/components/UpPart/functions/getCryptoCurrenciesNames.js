@@ -1,17 +1,34 @@
 import apiGetCryptoCurrenciesNames from "../../../services/apiGetCryptoCurrenciesNames";
 
-const getCryptoCurrenciesNames = async (setResponseApi) => {
-  const response = await apiGetCryptoCurrenciesNames();
-  if(validateResponse(response)){
-     
+const getCryptoCurrenciesNames = async () => {
+  const responseApi = await apiGetCryptoCurrenciesNames();
+
+  if (thereWasError(responseApi)) {
+    return "Error";
   }
+
+  return destructuringCodesAndNamesOfTheResponse(responseApi);
 };
 
 export default getCryptoCurrenciesNames;
 
-const validateResponse = (response) => {
-  if (response.Message === "Error") {
-    return false;
+const thereWasError = (responseApi) => {
+  if (responseApi.Message === "Error") {
+    return true;
   }
-  return true;
+  return false;
+};
+
+const destructuringCodesAndNamesOfTheResponse = (responseApi) => {
+  const cryptoCurriencies = [];
+
+  responseApi.Data.map((cryptoCurrencyInfo) => {
+    const cryptoCurrency = {
+      code: cryptoCurrencyInfo.CoinInfo.Name,
+      name: cryptoCurrencyInfo.CoinInfo.FullName,
+    };
+    cryptoCurriencies.push(cryptoCurrency);
+  });
+
+  return cryptoCurriencies;
 };

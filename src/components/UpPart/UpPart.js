@@ -2,27 +2,34 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header/Header";
 import Container from "./Styles";
 import Form from "./Form/Form";
-import getCryptoOptions from "./functions/s";
+import getCryptoCurrenciesNames from "./functions/getCryptoCurrenciesNames";
 
-const UpPart = () => {
+const handleGetCryptoNames = (setCryptoCurrenciesNames, setOpenSnackbarError) => {
+  const resultgetCryptoCurrenciesNames = getCryptoCurrenciesNames();
+  if(resultgetCryptoCurrenciesNames === "Error"){
+    setOpenSnackbarError(true);
+  }else {
+    setCryptoCurrenciesNames(resultgetCryptoCurrenciesNames);
+  }
+}
+
+const UpPart = (props) => {
+
+  const { setOpenSnackbarError } = props;
+
   const [
-    cryptoOptions,
-    setCryptoOptions,
-  ] = useState();
+    cryptoCurrenciesNames,
+    setCryptoCurrenciesNames,
+  ] = useState([]);
 
   useEffect(() => {
-    const responseCryptoOptions = getCryptoOptions();
-    
+    handleGetCryptoNames(setCryptoCurrenciesNames,setOpenSnackbarError);
   }, []);
-
-  const handleGetCryptoOptions = () => {
-
-  }
 
   return (
     <Container>
       <Header />
-      <Form />
+      <Form cryptoCurrenciesNames={cryptoCurrenciesNames} />
     </Container>
   );
 };
