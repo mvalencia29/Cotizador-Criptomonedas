@@ -15,6 +15,7 @@ export const DividerObject = styled.hr`
   height: 1px;
   background: #5f616d;
   border: none;
+  margin: 0;
 `;
 
 export const DividerContainer = styled.div`
