@@ -6,15 +6,23 @@ function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
 
-function SnackbarAlert(open, setOpen) {
+function SnackbarAlert({ snackbarError, setSnackbarError }) {
   const handleClose = () => {
-    setOpen(false);
+    setSnackbarError({
+      open: false,
+      message: "",
+    });
   };
 
   return (
-    <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-      <Alert onClose={handleClose} severity="success">
-        This is a success message!
+    <Snackbar
+      open={snackbarError.open}
+      autoHideDuration={3000}
+      onClose={handleClose}
+      anchorOrigin={{ vertical: "top", horizontal: "center" }}
+    >
+      <Alert onClose={handleClose} severity="error">
+        {snackbarError.message}
       </Alert>
     </Snackbar>
   );

@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import InputLabel from "@material-ui/core/InputLabel";
-import MenuItem from "@material-ui/core/MenuItem";
-import FormControl from "@material-ui/core/FormControl";
-import Select from "@material-ui/core/Select";
+import Select from "../components/Select/Select";
 
-const useSelectCurrencies = (options) => {
-
+const useSelectCurrencies = (options, label) => {
   const [optionSelected, setOptionSelected] = useState("");
 
   const handleChange = (e) => {
@@ -14,20 +10,12 @@ const useSelectCurrencies = (options) => {
 
   const SelectComponent = () => {
     return (
-      <FormControl variant="outlined" style={{ minWidth: 230 }}>
-        <InputLabel>Age</InputLabel>
-        <Select
-          fullWidth
-          value={optionSelected}
-          onChange={handleChange}
-          label="Age"
-        >
-          <MenuItem value="">None</MenuItem>
-          {options.map((option) => (
-            <MenuItem key={option.code} value={option.code}>{option.name}</MenuItem>
-          ))}
-        </Select>
-      </FormControl>
+      <Select
+        optionSelected={optionSelected}
+        handleChange={handleChange}
+        label={label}
+        options={options}
+      />
     );
   };
   return [optionSelected, SelectComponent];

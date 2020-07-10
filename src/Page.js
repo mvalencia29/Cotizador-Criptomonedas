@@ -1,15 +1,18 @@
 import React, { Fragment, useState } from "react";
 import UpPart from "./components/UpPart/UpPart";
-import SnackbarAlert from "./components/Snackbar";
+import SnackbarAlert from "./components/Snackbar/Snackbar";
 
 const Page = () => {
 
-    const [ openSnackbar, setOpenSnackbarError ] = useState(false);
+    const [ snackbarError, setSnackbarError ] = useState({
+      open : false,
+      message : ''
+    });
 
   return (
     <Fragment>
-      <UpPart setOpenSnackbarError={setOpenSnackbarError} />
-      <SnackbarAlert open={openSnackbar} setOpen={setOpenSnackbarError} />
+      <UpPart setSnackbarError={setSnackbarError} />
+      <SnackbarAlert snackbarError={snackbarError} setSnackbarError={setSnackbarError} />
     </Fragment>
   );
 };
