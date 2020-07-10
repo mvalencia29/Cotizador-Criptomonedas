@@ -5,7 +5,7 @@ const apiGetCryptoCurrencyValue = async (codCryptoCurrency, countryValue) => {
     const response = await fetch(url(codCryptoCurrency, countryValue));
     return response.json();
   } catch (e) {
-    return { Message: "Error" };
+    return "Error";
   }
 };
 

@@ -14,9 +14,9 @@ export default async function handleGetCryptoCurrencyValue(
       open: true,
       message: "Error, Por favor valide su conexion a internet",
     });
-    return;
   }
-  setCryptoCurrencyValue(result);
-  console.log(result);
+  else{
+    setCryptoCurrencyValue(result);
+  }
   setLoading(false);
 }
