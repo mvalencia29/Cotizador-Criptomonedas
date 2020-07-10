@@ -31,5 +31,5 @@ const destructuringCryptoCurrencyValue = (
   codCryptoCurrency,
   countryValue
 ) => {
-  return responseApi.DISPLAY.codCryptoCurrency.countryValue;
+  return responseApi.DISPLAY[codCryptoCurrency][countryValue];
 };

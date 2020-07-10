@@ -2,9 +2,13 @@ import React from "react";
 import { Container, ContainerForm, ButtonSave } from "./Styles";
 import useSelectOptions from "../../../hooks/useSelectOptions";
 import currenciesOptions from "../../../data/currencies";
-import isthereEmptySelects from "./functions/isThereEmptySelects";
+import handleValidateForm from "./functions/handleValidateForm";
 
-const Form = ({ cryptoCurrenciesNames, setSnackbarError }) => {
+const Form = ({
+  cryptoCurrenciesNames,
+  setSnackbarError,
+  getCryptoCurrencyValue,
+}) => {
   const [currencySelected, SelectCurrency] = useSelectOptions(
     currenciesOptions,
     "Moneda"
@@ -15,17 +19,11 @@ const Form = ({ cryptoCurrenciesNames, setSnackbarError }) => {
   );
 
   const handleOnClick = () => {
-    const selects = { currencySelected, cryptoSelected };
-
-    if (isthereEmptySelects(selects)) {
-      setSnackbarError({
-        open: true,
-        message: "Completa los campos",
-      });
-      return null;
-    }
-
-    
+    handleValidateForm(
+      { currencySelected, cryptoSelected },
+      setSnackbarError,
+      getCryptoCurrencyValue,
+    );
   };
 
   return (

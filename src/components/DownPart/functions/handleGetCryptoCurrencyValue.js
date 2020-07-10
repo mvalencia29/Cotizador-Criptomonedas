@@ -4,8 +4,10 @@ export default async function handleGetCryptoCurrencyValue(
   codCryptoCurrency,
   countryValue,
   setSnackbarError,
-  setCryptoCurrencyValue
+  setCryptoCurrencyValue,
+  setLoading
 ) {
+  setLoading(true);
   const result = await getCryptoCurrencyValue(codCryptoCurrency, countryValue);
   if (result === "Error") {
     setSnackbarError({
@@ -16,4 +18,5 @@ export default async function handleGetCryptoCurrencyValue(
   }
   setCryptoCurrencyValue(result);
   console.log(result);
+  setLoading(false);
 }

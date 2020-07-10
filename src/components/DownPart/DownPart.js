@@ -1,7 +1,12 @@
 import React from "react";
+import LinearProgress from "@material-ui/core/LinearProgress";
 
-const DownPart = () => {
-  return <p>Hi Down Part</p>;
+const DownPart = ({ loading }) => {
+  if (loading) {
+    return <LinearProgress />;
+  }
+
+  return "Hola";
 };
 
 export default DownPart;

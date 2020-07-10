@@ -4,7 +4,7 @@ import Container from "./Styles";
 import Form from "./Form/Form";
 import handleGetCryptoNames from "./functions/handleGetCryptoNames";
 
-const UpPart = ({ setSnackbarError }) => {
+const UpPart = ({ setSnackbarError, getCryptoCurrencyValue }) => {
   const [cryptoCurrenciesNames, setCryptoCurrenciesNames] = useState([]);
 
   useEffect(() => {
@@ -17,6 +17,7 @@ const UpPart = ({ setSnackbarError }) => {
       <Form
         cryptoCurrenciesNames={cryptoCurrenciesNames}
         setSnackbarError={setSnackbarError}
+        getCryptoCurrencyValue={getCryptoCurrencyValue}
       />
     </Container>
   );
