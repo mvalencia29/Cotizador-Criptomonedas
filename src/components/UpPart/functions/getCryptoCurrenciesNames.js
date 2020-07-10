@@ -24,6 +24,7 @@ const destructuringCodesAndNamesOfTheResponse = (responseApi) => {
 
   responseApi.Data.map((cryptoCurrencyInfo) => {
     const cryptoCurrency = {
+      id : cryptoCurrencyInfo.CoinInfo.Id,
       code: cryptoCurrencyInfo.CoinInfo.Name,
       name: cryptoCurrencyInfo.CoinInfo.FullName,
     };

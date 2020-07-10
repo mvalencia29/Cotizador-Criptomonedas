@@ -20,7 +20,7 @@ const Select = (props) => {
       >
         <MenuItem value="">None</MenuItem>
         {options.map((option) => (
-          <MenuItem key={option.code} value={option.code}>
+          <MenuItem key={option.id} value={option.code}>
             {option.name}
           </MenuItem>
         ))}
