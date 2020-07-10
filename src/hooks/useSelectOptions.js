@@ -4,7 +4,8 @@ import MenuItem from "@material-ui/core/MenuItem";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 
-const useSelectOption = (options) => {
+const useSelectCurrencies = (options) => {
+
   const [optionSelected, setOptionSelected] = useState("");
 
   const handleChange = (e) => {
@@ -32,8 +33,4 @@ const useSelectOption = (options) => {
   return [optionSelected, SelectComponent];
 };
 
-useSelectOption.defaultProps = {
-    options: [],
-};
-
-export default useSelectOption;
+export default useSelectCurrencies;

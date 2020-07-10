@@ -1,6 +1,6 @@
 import { urlGetCryptocurrenciesAvailable as url } from "../data/urls";
 
-const getCryptoOptions = async () => {
+const apiGetCryptoCurrenciesNames = async () => {
   try {
     const response = await fetch(url);
     return response.json();
@@ -9,4 +9,4 @@ const getCryptoOptions = async () => {
   }
 };
 
-export default getCryptoOptions;
+export default apiGetCryptoCurrenciesNames;

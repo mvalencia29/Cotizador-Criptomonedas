@@ -1,18 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container, ContainerForm, ButtonSave } from "./Styles";
-import useSelectOption from "../../../hooks/useSelectOption";
-import currencies from "../../../data/currencies";
+import useSelectOptions from "../../../hooks/useSelectOptions";
+import currenciesOptions from "../../../data/currencies";
 
 const Form = () => {
-  
-  const [currencySelected, SelectCurrency] = useSelectOption(currencies);
-  //const [criptoSelected, SelectCripto] = useSelectOption();
+
+  const [currencySelected, SelectCurrency] = useSelectOptions(
+    currenciesOptions
+  );
+  const [cryptoSelected, SelectCrypto] = useSelectOptions();
 
   return (
     <Container>
       <ContainerForm>
         <SelectCurrency />
-        {/*<SelectCripto />*/}
+        <SelectCrypto />
         <ButtonSave variant="contained" color="primary">
           Consultar
         </ButtonSave>

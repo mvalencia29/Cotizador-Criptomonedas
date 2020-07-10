@@ -2,20 +2,22 @@ import React, { useEffect, useState } from "react";
 import Header from "./Header/Header";
 import Container from "./Styles";
 import Form from "./Form/Form";
-import callApiGetCryptoOptions from "./functions/callApiGetCryptoOptions";
+import getCryptoOptions from "./functions/s";
 
 const UpPart = () => {
-  
-  const [loading, setLoading] = useState();
-
   const [
-    responseCallApiCryptoOptions,
-    setResponseCallApiCryptoOptions,
+    cryptoOptions,
+    setCryptoOptions,
   ] = useState();
 
   useEffect(() => {
-    callApiGetCryptoOptions(setResponseCallApiCryptoOptions, setLoading);
+    const responseCryptoOptions = getCryptoOptions();
+    
   }, []);
+
+  const handleGetCryptoOptions = () => {
+
+  }
 
   return (
     <Container>
