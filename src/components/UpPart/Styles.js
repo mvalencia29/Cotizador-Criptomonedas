@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  background: #f8f9fe;
+  background: #f0f3fa;
   padding-left: 35px;
   padding-right: 35px;
   padding-top: 30px;
