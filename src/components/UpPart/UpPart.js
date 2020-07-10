@@ -14,7 +14,10 @@ const UpPart = ({ setSnackbarError }) => {
   return (
     <Container>
       <Header />
-      <Form cryptoCurrenciesNames={cryptoCurrenciesNames} />
+      <Form
+        cryptoCurrenciesNames={cryptoCurrenciesNames}
+        setSnackbarError={setSnackbarError}
+      />
     </Container>
   );
 };
