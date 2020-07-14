@@ -2,7 +2,7 @@
 Mini Proyecto para poder cotizar dies criptomonedas en la moneda de tu pais.
 
 # Tecnologias
-Se uso Styled Components, Custom Hooks, React, Material UI.
+Se uso Styled Components, Custom Hooks, React, Material UI, Flex Box.
 
 # Preview
 
