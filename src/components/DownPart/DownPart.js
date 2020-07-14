@@ -1,9 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 import LinearProgress from "@material-ui/core/LinearProgress";
 import Cards from "./Cards/Cards";
 
 const DownPart = ({ loading, cryptoCurrencyValue }) => {
-  
   /*if (Object.keys(cryptoCurrencyValue).length === 0) {
     return null;
   }
@@ -12,7 +11,11 @@ const DownPart = ({ loading, cryptoCurrencyValue }) => {
     return <LinearProgress />;
   }*/
 
-  return <Cards />;
+  return (
+    <Fragment>
+      <Cards cryptoCurrencyValue={cryptoCurrencyValue} />
+    </Fragment>
+  );
 };
 
 export default DownPart;

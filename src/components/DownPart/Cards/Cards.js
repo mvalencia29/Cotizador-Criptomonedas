@@ -1,16 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Card from "./Card/Card";
 import { Container } from "./Styles";
 
-const Cards = () => {
+const Cards = ({ cryptoCurrencyValue }) => {
+  useEffect(() => {}, [cryptoCurrencyValue]);
+
   return (
     <Container>
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
-      <Card />
       <Card />
     </Container>
   );
