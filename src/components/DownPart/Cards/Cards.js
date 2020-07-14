@@ -12,8 +12,8 @@ const Cards = ({ cryptoCurrencyValue }) => {
 
   return (
     <Container>
-      {data.map((fields) => (
-        <Card key={fields.id} name={fields.name} value={fields.value} />
+      {data.map((field) => (
+        <Card key={field.id} name={field.text} value={field.component} />
       ))}
     </Container>
   );

@@ -1,28 +1,71 @@
 import quotationFields from "../../../../data/quotationFields";
 
 const passFromResponseToInformationForUI = (cryptoCurrencyValue) => {
-  const quotationFieldsWithTheComponents = assignComponents(cryptoCurrencyValue, quotationFields);
+  return assignComponents(cryptoCurrencyValue, quotationFields);
 };
 
 export default passFromResponseToInformationForUI;
 
 const assignComponents = (cryptoCurrencyValue, quotationFields) => {
-  const quotationFieldsCopy = quotationFields;
-  quotationFieldsCopy.PRICE.component = cryptoCurrencyValue.PRICE;
-  quotationFieldsCopy.OPENDAY.component = cryptoCurrencyValue.OPENDAY;
-  quotationFieldsCopy.HIGHDAY.component = cryptoCurrencyValue.HIGHDAY;
-  quotationFieldsCopy.LOWDAY.component = cryptoCurrencyValue.LOWDAY;
-  quotationFieldsCopy.OPEN24HOUR.component = cryptoCurrencyValue.OPEN24HOUR;
-  quotationFieldsCopy.HIGH24HOUR.component = cryptoCurrencyValue.HIGH24HOUR;
-  quotationFieldsCopy.LOW24HOUR.component = cryptoCurrencyValue.LOW24HOUR;
-  quotationFieldsCopy.OPENHOUR.component = cryptoCurrencyValue.OPENHOUR;
-  quotationFieldsCopy.HIGHHOUR.component = cryptoCurrencyValue.HIGHHOUR;
-  quotationFieldsCopy.LOWHOUR.component = cryptoCurrencyValue.LOWHOUR;
-  quotationFieldsCopy.CHANGE24HOUR.component = cryptoCurrencyValue.CHANGE24HOUR;
-  quotationFieldsCopy.CHANGEPCT24HOUR.component = cryptoCurrencyValue.CHANGEPCT24HOUR;
-  quotationFieldsCopy.CHANGEDAY.component = cryptoCurrencyValue.CHANGEDAY;
-  quotationFieldsCopy.CHANGEPCTDAY.component = cryptoCurrencyValue.CHANGEPCTDAY;
-  quotationFieldsCopy.CHANGEHOUR.component = cryptoCurrencyValue.CHANGEHOUR;
-  quotationFieldsCopy.CHANGEPCTHOUR.component = cryptoCurrencyValue.CHANGEPCTHOUR;
+  const quotationFieldsCopy = [];
+  quotationFields.map((field) => {
+    quotationFieldsCopy.push(assignComponentPerField(cryptoCurrencyValue,field))
+  });
   return quotationFieldsCopy;
+};
+
+const assignComponentPerField = (cryptoCurrencyValue, field) => {
+  switch (field.name) {
+    case "PRICE":
+      field.component = cryptoCurrencyValue.PRICE;
+      break;
+    case "OPENDAY":
+      field.component = cryptoCurrencyValue.OPENDAY;
+      break;
+    case "HIGHDAY":
+      field.component = cryptoCurrencyValue.HIGHDAY;
+      break;
+    case "LOWDAY":
+      field.component = cryptoCurrencyValue.LOWDAY;
+      break;
+    case "OPEN24HOUR":
+      field.component = cryptoCurrencyValue.OPEN24HOUR;
+      break;
+    case "HIGH24HOUR":
+      field.component = cryptoCurrencyValue.HIGH24HOUR;
+      break;
+    case "LOW24HOUR":
+      field.component = cryptoCurrencyValue.LOW24HOUR;
+      break;
+    case "OPENHOUR":
+      field.component = cryptoCurrencyValue.OPENHOUR;
+      break;
+    case "HIGHHOUR":
+      field.component = cryptoCurrencyValue.HIGHHOUR;
+      break;
+    case "LOWHOUR":
+      field.component = cryptoCurrencyValue.LOWHOUR;
+      break;
+    case "CHANGE24HOUR":
+      field.component = cryptoCurrencyValue.CHANGE24HOUR;
+      break;
+    case "CHANGEPCT24HOUR":
+      field.component = cryptoCurrencyValue.CHANGEPCT24HOUR;
+      break;
+    case "CHANGEDAY":
+      field.component = cryptoCurrencyValue.CHANGEDAY;
+      break;
+    case "CHANGEPCTDAY":
+      field.component = cryptoCurrencyValue.CHANGEPCTDAY;
+      break;
+    case "CHANGEHOUR":
+      field.component = cryptoCurrencyValue.CHANGEHOUR;
+      break;
+    case "CHANGEPCTHOUR":
+      field.component = cryptoCurrencyValue.CHANGEPCTHOUR;
+      break;
+    default:
+      break;
+  }
+  return field;
 };
