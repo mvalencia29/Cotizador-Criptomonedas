@@ -10,7 +10,4 @@ export const Container = styled.article`
   align-items: center;
   padding: 5px 30px;
   margin-top: 30px;
-  h3 {
-    color: #1d2029e6;
-  }
 `;

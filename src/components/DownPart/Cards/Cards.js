@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card/Card";
 import { Container } from "./Styles";
 import passFromResponseToInformationForUI from "./functions/passFromResponseToInformationForUI";
+import Grow from "@material-ui/core/Grow";
 
 const Cards = ({ cryptoCurrencyValue }) => {
   const [data, setData] = useState([]);
