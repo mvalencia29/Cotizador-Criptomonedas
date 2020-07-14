@@ -2,6 +2,7 @@ import React from "react";
 import { Container } from "./Styles";
 
 const Card = (props) => {
+  
   const { name, value } = props;
 
   return (
