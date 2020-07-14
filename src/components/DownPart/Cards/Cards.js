@@ -1,13 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "./Card/Card";
 import { Container } from "./Styles";
+import passFromResponseToInformationForUI from "./functions/passFromResponseToInformationForUI";
 
 const Cards = ({ cryptoCurrencyValue }) => {
-  useEffect(() => {}, [cryptoCurrencyValue]);
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    setData(passFromResponseToInformationForUI(cryptoCurrencyValue));
+  }, [cryptoCurrencyValue]);
 
   return (
     <Container>
-      <Card />
+      {data.map((fields) => (
+        <Card key={fields.id} name={fields.name} value={fields.value} />
+      ))}
     </Container>
   );
 };
