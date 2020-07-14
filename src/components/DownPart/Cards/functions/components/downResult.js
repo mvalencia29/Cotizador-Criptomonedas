@@ -4,6 +4,10 @@ import downIcon from "../../../../../images/icon-down.svg";
 
 const Text = styled.h3`
   color: #dc414c;
+  margin: 0;
+  @media (max-width: 600px) {
+    margin-bottom: 15px;
+  }
 `;
 
 const Img = styled.img`

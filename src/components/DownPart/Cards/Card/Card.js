@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "./Styles";
+import { Container, NameField } from "./Styles";
 
 const Card = (props) => {
   
@@ -7,7 +7,7 @@ const Card = (props) => {
 
   return (
     <Container>
-      <h3>{name}</h3>
+      <NameField>{name}</NameField>
       {value}
     </Container>
   );

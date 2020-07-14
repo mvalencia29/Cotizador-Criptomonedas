@@ -4,6 +4,10 @@ import upIcon from "../../../../../images/icon-up.svg";
 
 const Text = styled.h3`
   color: #1eb589;
+  margin: 0;
+  @media (max-width: 600px) {
+    margin-bottom: 15px;
+  }
 `;
 
 const Img = styled.img`
